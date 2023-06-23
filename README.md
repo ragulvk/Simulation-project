@@ -59,6 +59,7 @@ Ongoing Maintenance and Updates:
 Regular maintenance and updates are essential to ensure the continued effectiveness and reliability of the home security system. This includes periodic inspections, software updates, battery replacements, and sensor recalibration. Homeowners should be informed about maintenance requirements and the importance of keeping the system up to date.
 
 ## CIRCUIT DIAGRAM:
+![image](pro.png)
 
 ## PROGRAM:
 ```
