@@ -60,10 +60,139 @@ Regular maintenance and updates are essential to ensure the continued effectiven
 
 ## CIRCUIT DIAGRAM:
 
-
 ## PROGRAM:
 ```
-#include const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2; LiquidCrystal lcd(rs, en, d4, d5, d6, d7); #define Flame A0 #define Gas A1 #define Pir A2 #define Vib A3 #define Ir A4 #define Buzzer A5 #define Switch 7 boolean Fire, Smoke, Intruder, Window, Door; boolean Mode = false; void setup() { pinMode(Flame,INPUT_PULLUP); pinMode(Gas,INPUT_PULLUP); pinMode(Pir,INPUT_PULLUP); pinMode(Vib,INPUT_PULLUP); pinMode(Ir,INPUT_PULLUP); pinMode(Switch,INPUT_PULLUP); pinMode(Buzzer,OUTPUT); lcd.begin(20,4); pinMode(Buzzer, OUTPUT); lcd.setCursor(0,1); lcd.print("HOME SECURITY SYSTEM"); lcd.setCursor(0,2); lcd.print(" USING ARDUINO UNO "); lcd.setCursor(7,3); lcd.print("By TEP "); //delay(700); lcd.clear(); SensorDisplay(); } void loop() { Fire = digitalRead(Flame); Smoke = digitalRead(Gas); Intruder = digitalRead(Pir); Window = digitalRead(Vib); Door = digitalRead(Ir); Mode = digitalRead(Switch); SensorValues(); if(Mode==false) // Normal mode { lcd.setCursor(4,0); lcd.print("Normal Mode"); } else // Secure Mode { lcd.setCursor(4,0); lcd.print("Secure Mode"); if((Fire == HIGH) || (Smoke == HIGH) || (Intruder == HIGH) || (Window == HIGH) || (Door == HIGH)){ digitalWrite(Buzzer, HIGH); }else{ digitalWrite(Buzzer, LOW); } } } void SensorDisplay() { lcd.setCursor(0,1); lcd.print("Fire:"); lcd.setCursor(10,1); lcd.print("Smoke:"); lcd.setCursor(0,2); lcd.print("Door:"); lcd.setCursor(10,2); lcd.print("Window:"); lcd.setCursor(0,3); lcd.print("Intruder:"); } void SensorValues() { if(Fire == true){ lcd.setCursor(6,1); lcd.print("Yes");} else{ lcd.setCursor(6,1); lcd.print("No ");} if(Smoke == true){lcd.setCursor(17,1); lcd.print("Yes");} else{lcd.setCursor(17,1); lcd.print("No ");} if(Intruder == true){lcd.setCursor(11,3); lcd.print("Yes");} else{lcd.setCursor(11,3); lcd.print("No ");} if(Window == true){lcd.setCursor(17,2); lcd.print("Yes");} else{lcd.setCursor(17,2); lcd.print("No ");} if(Door == true){lcd.setCursor(6,2); lcd.print("Yes");} else{lcd.setCursor(6,2); lcd.print("No ");} }
+#include<LiquidCrystal.h>
+
+LiquidCrystal lcd(2,3,4,5,6,7);
+
+int buzzer=9;
+int fire=8;
+int gas=A1;
+int water=A0;
+
+void setup() {
+Serial.begin(9600);
+lcd.begin(16,2);
+pinMode(buzzer,OUTPUT);
+pinMode(fire,INPUT);
+pinMode(gas,INPUT);
+pinMode(water,INPUT);
+}
+
+void loop() {
+// put your main code here, to run repeatedly:
+int gasData=analogRead(gas);
+int waterData=analogRead(water);
+int fireData=digitalRead(fire);
+Serial.print(“Gas Data:”);
+Serial.println(gasData);
+Serial.print(“Water Data:”);
+Serial.println(waterData);
+Serial.print(“Fire Data:”);
+Serial.println(fireData);
+
+if((gasData<=750)&&(waterData<=300)&&(fireData==0))
+{
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“You Are Safe”);
+
+}
+
+else if((gasData>750)&&(waterData>300)&&(fireData==1))
+{
+tone(buzzer,500);
+delay(200);
+noTone(buzzer);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“ALERT!”);
+delay (100);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“GAS & WATER LEAKAGE”);
+lcd.setCursor(0,1);
+lcd.println(“FIRE DETECTED”);
+
+}
+
+else if((gasData>750)&&(waterData>300)&&(fireData==0))
+{
+tone(buzzer,1000);
+delay(200);
+noTone(buzzer);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“ALERT”);
+delay (100);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“WATER LEAKAGE”);
+lcd.setCursor(0,1);
+lcd.print(“GAS LEAKAGE”);
+}
+
+else if((gasData<=750)&&(waterData>300)&&(fireData==1))
+{
+tone(buzzer,1500);
+delay(200);
+noTone(buzzer);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“ALERT!”);
+delay (100);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“WATER LEAKAGE”);
+lcd.setCursor(0,1);
+lcd.print(“FIRE”);
+}
+
+else if((gasData>750)&&(waterData<=300)&&(fireData==1)) { tone(buzzer,100); delay(200); noTone(buzzer); lcd.clear(); lcd.setCursor(0,0); lcd.print(“ALERT!”); delay (100); lcd.clear(); lcd.setCursor(0,0); lcd.print(“FIRE”); lcd.setCursor(0,1); lcd.print(“GAS LEAKAGE”); } else if((gasData>750)&&(waterData<=300)&&(fireData==0))
+{
+tone(buzzer,2000);
+delay(200);
+noTone(buzzer);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“ALERT!”);
+delay (100);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“GAS LEAKAGE”);;
+}
+
+else if((gasData<=750)&&(waterData>300)&&(fireData==0))
+{
+tone(buzzer,2500);
+delay(200);
+noTone(buzzer);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“ALERT!”);
+delay (100);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“WATER LEAKAGE”);
+}
+
+else if((gasData<=750)&&(waterData<=300)&&(fireData==1))
+{
+tone(buzzer,3500);
+delay(200);
+noTone(buzzer);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“ALERT!”);
+delay (100);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print(“FIRE DeETECTED”);
+}
+
+}
+
 ```
 
 ## RESULTS:
