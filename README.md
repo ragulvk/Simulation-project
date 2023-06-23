@@ -197,8 +197,33 @@ lcd.print(“FIRE DeETECTED”);
 ```
 
 ## RESULTS:
+![image](https://i0.wp.com/geekyengineers.com/wp-content/uploads/2021/05/image-5.png?resize=640%2C323&ssl=1.png)
+![image](https://i0.wp.com/geekyengineers.com/wp-content/uploads/2021/05/image-6.png?resize=640%2C331&ssl=1.png)
+![image](https://i0.wp.com/geekyengineers.com/wp-content/uploads/2021/05/image-8.png?resize=640%2C326&ssl=1.png)
+![image](https://i0.wp.com/geekyengineers.com/wp-content/uploads/2021/05/image-9.png?resize=640%2C338&ssl=1.png)
+![image](https://i0.wp.com/geekyengineers.com/wp-content/uploads/2021/05/image-10.png?resize=640%2C353&ssl=1.png)
+![image](https://i0.wp.com/geekyengineers.com/wp-content/uploads/2021/05/image-11.png?resize=640%2C334&ssl=1.png)
+![image](https://i0.wp.com/geekyengineers.com/wp-content/uploads/2021/05/image-12.png?resize=640%2C328&ssl=1.png)
 
 ## CONCLUSION:
 
+The advanced home security system outlined in this abstract provides a comprehensive and proactive approach to residential security. By leveraging advanced technologies, integration with smart home devices, and seamless connectivity, the system offers homeowners peace of mind, enhanced control, and reliable protection against potential threats and intrusions.
+
+Home security systems have evolved into sophisticated and technologically advanced solutions that cater to the evolving security needs of homeowners. By combining physical security measures with digital technologies, these systems offer a comprehensive approach to protecting residential properties. With features such as intrusion detection, video surveillance, smart automation, and professional monitoring, home security systems provide homeowners with the peace of mind they deserve, knowing that their homes and loved ones are well-protected.
+
+The effectiveness of home security systems in deterring burglaries and enhancing residential safety. The integration of smart home technologies, video surveillance advancements, wireless sensor networks, and IoT integration has significantly improved the capabilities of these systems. However, privacy and data security remain important considerations in the design and implementation of home security systems. Future research should focus on addressing these concerns and further enhancing the integration of emerging technologies to provide more comprehensive and reliable home security solutions.
+
+A structured approach to developing a robust home security system. By conducting a thorough needs assessment, designing a tailored system, performing proper installation and testing, providing user training, and maintaining the system regularly, homeowners can benefit from enhanced security, peace of mind, and effective protection against potential threats.
+
+
 ## REFERENCE:
+Books
+ [1] Michael Mcroberts, Beginning Arduino.
+Software
+ [2] Arduino IDE 1.0.6 from https://www.arduino.cc/en/main/software.
+World Wide Web
+ [3] www.circuitstoday.com
+ [4] www.engineersgarage.com
+ [5] www.learn.adafruit.com
+ [6] www.instructables.com 
 
