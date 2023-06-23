@@ -217,6 +217,7 @@ A structured approach to developing a robust home security system. By conducting
 
 
 ## REFERENCE:
+```
 Books
  [1] Michael Mcroberts, Beginning Arduino.
 Software
@@ -225,5 +226,6 @@ World Wide Web
  [3] www.circuitstoday.com
  [4] www.engineersgarage.com
  [5] www.learn.adafruit.com
- [6] www.instructables.com 
+ [6] www.instructables.com
+```
 
